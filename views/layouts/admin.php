@@ -23,23 +23,23 @@ AppAsset::register($this);
     <title><?= yii\helpers\Html::encode($this->title) ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
-        <link href="http://rb-forman.com/views/layouts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
-        <link href="http://rb-forman.com/views/layouts/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
-        <link href="http://rb-forman.com/views/layouts/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Morris chart -->
-        <link href="http://rb-forman.com/views/layouts/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/morris/morris.css" rel="stylesheet" type="text/css" />
         <!-- jvectormap -->
-        <link href="http://rb-forman.com/views/layouts/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
         <!-- fullCalendar -->
-        <link href="http://rb-forman.com/views/layouts/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
         <!-- Daterange picker -->
-        <link href="http://rb-forman.com/views/layouts/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <!-- bootstrap wysihtml5 - text editor -->
-        <link href="http://rb-forman.com/views/layouts/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
-        <link href="http://rb-forman.com/views/layouts/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <link href="http://rb-forman.com/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <?php //$this->head() ?>
 </head>
 <body  class="skin-black">
