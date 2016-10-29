@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\RbCategories;
+use app\models\Products;
 
 class CategoryController extends \yii\web\Controller
 {
@@ -11,7 +12,7 @@ class CategoryController extends \yii\web\Controller
     {
     	$request = Yii::$app->request;
 
-		$alias = $request->get('category');
+		$alias = $request->get('alias');
 
     	$categories = RbCategories::find()->where(['alias'=>$alias])->one();
 
@@ -20,4 +21,48 @@ class CategoryController extends \yii\web\Controller
         ]);
     }
 
+	public function actionCategory()
+    {
+    	$request = Yii::$app->request;
+
+		$alias = $request->get('alias');
+
+		$categories = RbCategories::find()->where(['alias'=>$alias])->one();
+
+		$parentCategory = RbCategories::findOne($categories['parent']);
+
+		$parent = $categories->id;
+
+    	$products = Products::find()->where(['parent'=>$parent])->all();
+
+        return $this->render('index', [
+        	'parent' => $parent,
+        	'products' => $products,
+        	'categories' => $categories,
+        	'parentCategory' => $parentCategory,
+        ]);
+    }    
+
+    public function actionNext()
+    {
+        $request = Yii::$app->request;
+
+        $alias = $request->get('alias');
+
+        $parent = RbCategories::find()->where(['alias'=>$alias])->one();
+
+        $parent_id = $parent['parent'];
+
+        $parent_parent = RbCategories::find('name')->where(['id'=>$parent_id])->one();
+
+        $parent_id = $parent->id;
+
+        $category_next = RbCategories::find()->where(['parent'=>$parent_id])->all();
+
+        return $this->render('next', [
+            'parent_parent' => $parent_parent,
+            'parent' => $parent,
+            'categories' => $category_next,
+        ]);
+    }
 }

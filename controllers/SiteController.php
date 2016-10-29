@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\RbCategories;
 use app\models\Articles;
 use yii\data\Pagination;
+use app\models\Menu;
 
 class SiteController extends Controller
 {
@@ -66,7 +67,7 @@ class SiteController extends Controller
         $categories = RbCategories::find()->where(['parent'=>0])->all();
 
         return $this->render('index',[
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
