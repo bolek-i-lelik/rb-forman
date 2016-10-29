@@ -9,6 +9,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\helpers\Url;
+use app\controllers\Layouts;
+use app\widgets\menu\MainMenu;
 
 AppAsset::register($this);
 ?>
@@ -18,8 +20,8 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <?= yii\helpers\Html::csrfMetaTags() ?>
+    <title><?= yii\helpers\Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -66,36 +68,75 @@ AppAsset::register($this);
             <div id="main_menu">
                 <ul class="menu" id="main_m">
                     <li id="current" class="item1">
-                        <a href="<?= Url::to('/', true);?>"><span>Главная</span></a>
+                        <a href="<?= yii\helpers\Url::to('/', true);?>"><span>Главная</span></a>
                     </li>
                     <li class="item2">
-                        <a href="<?= Url::to('/about', true); ?>"><span> О компании</span></a>
+                        <a href="<?= yii\helpers\Url::to('/about', true); ?>"><span> О компании</span></a>
                     </li>
                     <li class="item5">
-                        <a href="<?= Url::to('/articles', true) ?>"><span>Статьи</span></a>
+                        <a href="<?= yii\helpers\Url::to('/articles', true) ?>"><span>Статьи</span></a>
                     </li>
                     <li class="item26">
-                        <a href="<?= Url::to('/dostavka', true) ?>"><span>Доставка</span></a>
+                        <a href="<?= yii\helpers\Url::to('/dostavka', true) ?>"><span>Доставка</span></a>
                     </li>
                     <li class="item28">
-                        <a href="<?= Url::to('akcii', true) ?>"><span>Акции</span></a>
+                        <a href="<?= yii\helpers\Url::to('akcii', true) ?>"><span>Акции</span></a>
                     </li>
                     <li class="item3">
-                        <a href="<?= Url::to('/contact', true); ?>"><span>Контакты</span></a>
+                        <a href="<?= yii\helpers\Url::to('/contact', true); ?>"><span>Контакты</span></a>
                     </li>
                     <li class="item603">
-                        <a href="<?= Url::to('/optom', true) ?>"><span>Оптом</span></a>
+                        <a href="<?= yii\helpers\Url::to('/optom', true) ?>"><span>Оптом</span></a>
                     </li>
                 </ul>
             </div>  
         </div> 
         <div>
             <br />
-            <?= Breadcrumbs::widget([
+            <?= yii\widgets\Breadcrumbs::widget([
+                'homeLink' => ['label' => 'Главная', 'url' => '/'],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
-            <?= $content ?>
+            
         </div>
+        <div id="main">
+    <div id="left_side">
+        <div class="moduletable_left_m">
+            <center><h3>Продукция:</h3></center>
+            <?= app\widgets\menu\MainMenu::widget()?>
+            
+        </div>
+        <div class="moduletable">
+        <center>
+            <p><img src="<?= yii\helpers\Url::to('images/sy0d0_croper_ru.png', true); ?>" alt="Телевизор в подарок" width="230" height="234" /></p>
+            </center>
+        </div>
+        <div class="moduletable">
+        <center>
+            <p><img src="<?= yii\helpers\Url::to('images/5m73s_croper_ru.png', true); ?>" width="230" height="220" alt="5m73s croper_ru" /></p>
+            <p>&nbsp;</p>
+            </center>
+        </div>
+        <div class="moduletable_srtificate">
+        <center>
+            <h3>Сертификаты</h3>
+            <a href="/index.php?option=com_content&amp;view=article&amp;id=43&amp;Itemid=38"><img src="<?= yii\helpers\Url::to('web/images/stories/sertifikat/1_Zertifikat_2010[1]mini.jpg', true); ?>" alt="" width="107"/></a>
+            <a href="/index.php?option=com_content&amp;view=article&amp;id=43&amp;Itemid=38"><img src="<?= yii\helpers\Url::to('images/stories/sertifikat/1mini.jpg', true); ?>" alt="" width="107"/></a>
+            </center>
+        </div>
+    </div>
+    <div id="right_side">
+        <div class="moduletable">
+            <p><span style="font-family: 'arial black', 'avant garde'; font-size: 18pt; color: #800000;">&nbsp; &nbsp;<br/>Полная комплектация строительных объектов</span></p>
+            <p><a href="<?= yii\helpers\Url::to('akcii', true) ?>"><img alt="baner" src="<?= yii\helpers\Url::to('images/baner.png', true); ?>" style="margin: 20px 0px;" height="78" width="717" /></a></p>
+        </div>
+        <div id="content">
+            
+                    <?= $content ?>    
+
+
+
+
     </div>
 <?php $this->endBody() ?>
 </body>

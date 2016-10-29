@@ -12,6 +12,13 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => []
+                ]
+            ]
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'fdhsgjfhgjhdsfjghdiufh',
@@ -54,6 +61,10 @@ $config = [
                 'categories/<category>' => 'category/index',
                 'optom/<alias>' => 'optom/index',
                 'article/<alias>' => 'article/index',
+                'category/<alias>' => 'category/category',
+                'categoryNext/<alias>' => 'category/next',
+                'collection/<id>' => 'collection/index',
+                
             ],
 
         ],

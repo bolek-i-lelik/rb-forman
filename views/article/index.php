@@ -6,7 +6,7 @@ use yii\helpers\Url;
 
 
 $this->title = $article->title;
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = 'Статьи  /  '. $this->title;
 
 $this->registerMetaTag([
     'name' => 'description',

@@ -2,32 +2,40 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Url;
+use app\widgets\menu\MainMenu;
 
 $this->title = 'Стройматериалы оптом и в розницу - Москва';
 ?>
-<div id="main">
+<!--<div id="main">
 	<div id="left_side">
 		<div class="moduletable_left_m">
-			<h3>Продукция:</h3>
-			<ul class="menu" id="left_m">
+			<center><h3>Продукция:</h3></center>
+			<?= MainMenu::widget()?>
+			<!--<ul class="menu" id="left_m">
 				<?php foreach ($categories as $categorie):?>
 					<li class="parent">
 						<a href="<?= Url::to(['categories/'.$categorie->alias]) ?>"><span><?=$categorie->name?></span></a>
 					</li>
 				<?php endforeach;?>						
-			</ul>
-		</div>
+			</ul>-->
+		<!--</div>
 		<div class="moduletable">
+		<center>
 			<p><img src="images/sy0d0_croper_ru.png" alt="Телевизор в подарок" width="230" height="234" /></p>
+			</center>
 		</div>
 		<div class="moduletable">
+		<center>
 			<p><img src="images/5m73s_croper_ru.png" width="230" height="220" alt="5m73s croper_ru" /></p>
 			<p>&nbsp;</p>
+			</center>
 		</div>
 		<div class="moduletable_srtificate">
+		<center>
 			<h3>Сертификаты</h3>
 			<a href="/index.php?option=com_content&amp;view=article&amp;id=43&amp;Itemid=38"><img src="web/images/stories/sertifikat/1_Zertifikat_2010[1]mini.jpg" alt="" width="107"/></a>
 			<a href="/index.php?option=com_content&amp;view=article&amp;id=43&amp;Itemid=38"><img src="images/stories/sertifikat/1mini.jpg" alt="" width="107"/></a>
+			</center>
 		</div>
 	</div>
 	<div id="right_side">
@@ -37,7 +45,7 @@ $this->title = 'Стройматериалы оптом и в розницу - �
 		</div>
 		<div id="content">
 			<div class="blog">
-				<div class="leading">
+				<div class="leading">-->
 					<h2 class="contentheading">	Продажа строительных материалов и сухих смесей Форман</h2>
 					<table align="center">
 						<tbody>
