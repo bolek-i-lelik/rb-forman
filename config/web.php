@@ -60,7 +60,7 @@ $config = [
                 'category/<alias>' => 'category/category',
                 'categoryNext/<alias>' => 'category/next',
                 'collection/<id>' => 'collection/index',
-                'admin/' => 'admin/index',
+                
             ],
 
         ],
