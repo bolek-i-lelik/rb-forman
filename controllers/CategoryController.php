@@ -5,8 +5,9 @@ namespace app\controllers;
 use Yii;
 use app\models\RbCategories;
 use app\models\Products;
+use app\controllers\MainController;
 
-class CategoryController extends \yii\web\Controller
+class CategoryController extends MainController
 {
     public function actionIndex()
     {

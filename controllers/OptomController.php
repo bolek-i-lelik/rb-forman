@@ -4,8 +4,9 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Articles;
+use app\controllers\MainController;
 
-class OptomController extends \yii\web\Controller
+class OptomController extends MainController
 {
     public function actionIndex()
     {

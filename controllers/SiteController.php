@@ -12,8 +12,9 @@ use app\models\RbCategories;
 use app\models\Articles;
 use yii\data\Pagination;
 use app\models\Menu;
+use app\controllers\MainController;
 
-class SiteController extends Controller
+class SiteController extends MainController
 {
     /**
      * @inheritdoc

@@ -13,6 +13,8 @@ use Yii;
  * @property string $keywords
  * @property string $text
  * @property string $alias
+ * @property integer $parent
+ * @property string $intro
  */
 class Articles extends \yii\db\ActiveRecord
 {
@@ -30,8 +32,8 @@ class Articles extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'keywords', 'text', 'alias', 'parent'], 'required'],
             [['text', 'intro'], 'string'],
+            [['parent'], 'integer'],
             [['title', 'description', 'keywords', 'alias'], 'string', 'max' => 255],
         ];
     }

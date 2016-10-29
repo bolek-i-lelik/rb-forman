@@ -12,6 +12,8 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property integer $parent
+ * @property string $image
+ * @property integer $count_podcat
  */
 class Collection extends \yii\db\ActiveRecord
 {
@@ -29,9 +31,8 @@ class Collection extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'title', 'description', 'parent'], 'required'],
-            [['parent'], 'integer'],
-            [['name', 'title', 'description'], 'string', 'max' => 255],
+            [['parent', 'count_podcat'], 'integer'],
+            [['name', 'title', 'description', 'image'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,6 +47,8 @@ class Collection extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'parent' => 'Parent',
+            'image' => 'Image',
+            'count_podcat' => 'Count Podcat',
         ];
     }
 }

@@ -1,1 +1,1 @@
-{"baseClass":"yii\\web\\Controller","template":"default"}
+{"baseClass":"MainController","template":"default"}

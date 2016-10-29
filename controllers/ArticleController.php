@@ -4,8 +4,9 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Articles;
+use app\controllers\MainController;
 
-class ArticleController extends \yii\web\Controller
+class ArticleController extends MainController
 {
     public function actionIndex()
     {

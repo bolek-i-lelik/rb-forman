@@ -3,11 +3,12 @@
 namespace app\controllers;
 
 use app\models\Menu;
+use app\controllers\MainController;
 
 /**
 * 
 */
-class LayoutsController extends \yii\web\Controller
+class LayoutsController extends MainController
 {
 	
 	public function main()

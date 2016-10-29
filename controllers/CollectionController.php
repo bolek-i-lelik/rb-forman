@@ -7,8 +7,9 @@ use app\models\RbCategories;
 use app\models\Products;
 use app\models\Collection;
 use app\models\Podcat;
+use app\controllers\MainController;
 
-class CollectionController extends \yii\web\Controller
+class CollectionController extends MainController
 {
     public function actionIndex()
     {

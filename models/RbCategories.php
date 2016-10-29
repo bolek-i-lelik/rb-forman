@@ -14,6 +14,11 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property string $keywords
+ * @property string $h1
+ * @property string $image
+ * @property string $preview_text
+ * @property string $text
+ * @property string $video
  */
 class RbCategories extends \yii\db\ActiveRecord
 {
@@ -31,10 +36,11 @@ class RbCategories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'parent', 'alias', 'title', 'description', 'keywords'], 'required'],
             [['parent'], 'integer'],
-            [['name', 'title', 'description', 'keywords'], 'string', 'max' => 255],
+            [['text'], 'string'],
+            [['name', 'title', 'description', 'keywords', 'h1', 'image', 'preview_text'], 'string', 'max' => 255],
             [['alias'], 'string', 'max' => 400],
+            [['video'], 'string', 'max' => 512],
         ];
     }
 
@@ -51,6 +57,11 @@ class RbCategories extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'keywords' => 'Keywords',
+            'h1' => 'H1',
+            'image' => 'Image',
+            'preview_text' => 'Preview Text',
+            'text' => 'Text',
+            'video' => 'Video',
         ];
     }
 }

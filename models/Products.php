@@ -18,6 +18,10 @@ use Yii;
  * @property integer $price
  * @property string $articul
  * @property integer $parent
+ * @property string $image
+ * @property integer $podcat
+ * @property string $size
+ * @property string $price_r
  */
 class Products extends \yii\db\ActiveRecord
 {
@@ -35,10 +39,9 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'name', 'title', 'h1', 'description', 'keywords', 'text', 'price', 'articul', 'parent'], 'required'],
-            [['price', 'parent'], 'integer'],
-            [['alias', 'name', 'title', 'h1', 'description', 'keywords', 'text'], 'string', 'max' => 255],
-            [['articul'], 'string', 'max' => 50],
+            [['text'], 'string'],
+            [['price', 'parent', 'podcat'], 'integer'],
+            [['alias', 'name', 'title', 'h1', 'description', 'keywords', 'articul', 'image', 'size', 'price_r'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,6 +62,10 @@ class Products extends \yii\db\ActiveRecord
             'price' => 'Price',
             'articul' => 'Articul',
             'parent' => 'Parent',
+            'image' => 'Image',
+            'podcat' => 'Podcat',
+            'size' => 'Size',
+            'price_r' => 'Price R',
         ];
     }
 }
