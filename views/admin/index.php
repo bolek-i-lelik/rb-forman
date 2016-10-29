@@ -22,3 +22,4 @@ $data = \moonland\phpexcel\Excel::widget([
 <?php foreach($data as $dat):?>
 	<?= var_dump($dat); echo '<hr>'; ?>
 <?php endforeach;?>
+<p></p>
