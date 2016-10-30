@@ -40,9 +40,9 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['text'], 'string'],
-            [['price', 'parent', 'podcat'], 'integer'],
-            [['alias', 'name', 'title', 'h1', 'description', 'keywords', 'articul', 'image', 'size', 'price_r', 'edizm'], 'string', 'max' => 255],
+            /*[['text'], 'string'],
+            /*[['price', 'parent', 'podcat'], 'integer'],
+            /*[['alias', 'name', 'title', 'h1', 'description', 'keywords', 'articul', 'image', 'size', 'price_r', 'edizm'], 'string', 'max' => 255],*/
         ];
     }
 

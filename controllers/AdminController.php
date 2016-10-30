@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\RbCategories;
+use app\models\Products;
 
 class AdminController extends MainController
 {
@@ -29,7 +30,7 @@ class AdminController extends MainController
 		]);
 
 		//разбираем категории
-		foreach($data as $dat){
+		/*foreach($data as $dat){
 			if($dat['Коллекция']){
 				$collection = RbCategories::find()->where(['name'=>$dat['Коллекция']])->one();
 				if(!empty($collection['id'])){
@@ -43,6 +44,48 @@ class AdminController extends MainController
 					echo $dat['Коллекция'].' добавлена<hr>';
 				}
 			}
+		}*/
+
+		//разбираем продукты
+		foreach ($data as $dat) {
+			if($dat['АРТИКУЛ КЕРАМА']){
+				$product = Products::find()->where(['name'=>$dat['Наименование товара']])->one();
+				if(!empty($product)){
+					$product->name = $dat['Наименование товара'];
+					
+					$product->alias = $this->str2url($dat['Наименование товара']);
+					$product->price = str_replace(',', '', $dat['Минимальная розничная цена, рекомендуемая производителем,руб.с НДС']);
+					$product->articul = $dat['АРТИКУЛ КЕРАМА'];
+					$parent = RbCategories::find()->where(['name'=>$dat['Коллекция']])->one();
+					$product->parent = $parent->id;
+					$product->image = $dat['АРТИКУЛ КЕРАМА'].'.jpg';
+					$product->size = $dat['размер'];
+					$product->edizm = $dat['единиц.измер.'];
+					$product->save();
+				}
+				else{
+					$product = new Products();
+					$product->name = $dat['Наименование товара'];
+					$product->title = $dat['Наименование товара'];
+					$product->description = $dat['Наименование товара'];
+					$product->keywords = $dat['Наименование товара'];
+					$product->text = $dat['Наименование товара'];
+					$product->podcat = 0;
+					$product->price_r = 0;
+					$product->h1 = $dat['Коллекция'].' - '.$dat['Наименование товара'];
+					$product->alias = $this->str2url($dat['Наименование товара']);
+					$product->price = $dat['Минимальная розничная цена, рекомендуемая производителем,руб.с НДС'];
+					$product->articul = $dat['АРТИКУЛ КЕРАМА'];
+					$parent = RbCategories::find()->where(['name'=>$dat['Коллекция']])->one();
+					$product->parent = $parent->id;
+					$product->image = $dat['АРТИКУЛ КЕРАМА'].'.jpg';
+					$product->size = $dat['размер'];
+					$product->edizm = $dat['единиц.измер.'];
+					$product->save();
+					echo 'Продукт '.$dat['Наименование товара'].' сохранён<hr>';
+				}
+			}
+			
 		}
 		exit();
 
