@@ -44,14 +44,14 @@ class Articles extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Идентификатор',
             'title' => 'Title',
             'description' => 'Description',
             'keywords' => 'Keywords',
-            'text' => 'Text',
-            'alias' => 'Alias',
-            'parent' => 'Parent',
-            'intro' => 'Intro',
+            'text' => 'Текст',
+            'alias' => 'Алиас',
+            'parent' => 'Родитель',
+            'intro' => 'Превью',
         ];
     }
 }

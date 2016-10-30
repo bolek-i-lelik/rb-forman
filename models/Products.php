@@ -22,6 +22,7 @@ use Yii;
  * @property integer $podcat
  * @property string $size
  * @property string $price_r
+ * @property string $edizm
  */
 class Products extends \yii\db\ActiveRecord
 {
@@ -41,7 +42,7 @@ class Products extends \yii\db\ActiveRecord
         return [
             [['text'], 'string'],
             [['price', 'parent', 'podcat'], 'integer'],
-            [['alias', 'name', 'title', 'h1', 'description', 'keywords', 'articul', 'image', 'size', 'price_r'], 'string', 'max' => 255],
+            [['alias', 'name', 'title', 'h1', 'description', 'keywords', 'articul', 'image', 'size', 'price_r', 'edizm'], 'string', 'max' => 255],
         ];
     }
 
@@ -66,6 +67,7 @@ class Products extends \yii\db\ActiveRecord
             'podcat' => 'Podcat',
             'size' => 'Size',
             'price_r' => 'Price R',
+            'edizm' => 'Edizm',
         ];
     }
 }
