@@ -66,4 +66,49 @@ class CategoryController extends MainController
             'categories' => $category_next,
         ]);
     }
+
+    public function actionKerama()
+    {
+        $request = Yii::$app->request;
+
+        $alias = $request->get('alias');
+
+        //echo $alias; exit();
+
+        $cat = RbCategories::find()->where(['alias'=>$alias])->one();
+
+        //var_dump($cat);exit();
+
+        $id = $cat['id'];
+
+        $childCat = RbCategories::find()->where(['parent'=>$id])->one();
+        //var_dump($childCat);exit();
+
+        if($childCat!=NULL){
+
+            $collections = RbCategories::find()->where(['parent'=>$cat['id']])->all();
+
+        }
+
+        return $this->render('kerama',[
+            'collections' => $collections,
+        ]);
+    }
+
+    public function actionKeramamarazzi()
+    {
+        $request = Yii::$app->request;
+
+        $alias = $request->get('alias');
+
+        $parent = RbCategories::find()->where(['alias'=>$alias])->one();
+
+        $parent_id = $parent['id'];
+
+        $collections = RbCategories::find()->where(['parent'=>$parent_id])->all();
+
+        return $this->render('keramamarazzi', [
+            'collections' => $collections,
+        ]);
+    }
 }

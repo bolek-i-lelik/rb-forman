@@ -57,9 +57,10 @@ $config = [
                 'categories/<category>' => 'category/index',
                 'optom/<alias>' => 'optom/index',
                 'article/<alias>' => 'article/index',
-                'category/<alias>' => 'category/category',
-                'categoryNext/<alias>' => 'category/next',
+                'category/<alias>' => 'category/kerama',
                 'collection/<id>' => 'collection/index',
+                'category/keramamarazzi/<alias>' => 'category/keramamarazzi',
+                
                 
             ],
 

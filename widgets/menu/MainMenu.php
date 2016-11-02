@@ -58,7 +58,7 @@ class MainMenu extends \yii\bootstrap\Widget
 
 		foreach ($dataset as $data) {
 			echo Html::beginTag('li');
-			echo Html::Tag('a', Html::encode($data->name), ['href' => Url::to('categoryNext/'.$data->alias, true)]);
+			echo Html::Tag('a', Html::encode($data->name), ['href' => Url::to('category/'.$data->alias, true)]);
 			echo Html::endTag('li');
 			$issetchild = Menu::find() -> where(['parent' => $data->id])->one();
 			//if($issetchild){
