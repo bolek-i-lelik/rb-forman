@@ -13,7 +13,7 @@
 				</center><br/>
 				<center><a href="/category/keramamarazzi/<?= $collection->alias ?>">
 					<?= $collection->name ?>
-				</a></center>
+				</a></center><br/><br/>
 			</div>
 		<?php endforeach;?>
 	</div>
