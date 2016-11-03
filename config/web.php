@@ -57,11 +57,13 @@ $config = [
                 'categories/<category>' => 'category/index',
                 'optom/<alias>' => 'optom/index',
                 'article/<alias>' => 'article/index',
-                'category/<alias>' => 'category/kerama',
+                'category/<alias>' => 'category/index',
+                'category/kerama/<alias>' => 'category/kerama',
                 'collection/<id>' => 'collection/index',
                 'category/keramamarazzi/<alias>' => 'category/keramamarazzi',
-                
-                
+                'category/keramaproducts/<alias>' => 'category/keramaproducts',
+                'product/<alias>' => 'product/index',
+                'category/products/<alias>' => 'category/products',
             ],
 
         ],

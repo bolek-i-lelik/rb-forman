@@ -15,7 +15,28 @@ class CategoryController extends MainController
 
 		$alias = $request->get('alias');
 
+        //echo $alias;exit();
+
+        if($alias == 'keramicheskaja-plitka-kerama-marazzi'){
+
+            return $this->redirect('kerama/keramicheskaja-plitka-kerama-marazzi');
+
+        }
+
+        if($alias == 'kerama-marazzi-keramogranit'){
+
+            return $this->redirect('kerama/kerama-marazzi-keramogranit');
+
+        }
+
     	$categories = RbCategories::find()->where(['alias'=>$alias])->one();
+
+        $childs = RbCategories::find()->where(['parent'=>$categories['id']])->one();
+        if(empty($childs)){
+
+            return $this->redirect('products/'.$alias);
+
+        }
 
         return $this->render('index', [
         	'categories' => $categories
@@ -73,17 +94,12 @@ class CategoryController extends MainController
 
         $alias = $request->get('alias');
 
-        //echo $alias; exit();
-
         $cat = RbCategories::find()->where(['alias'=>$alias])->one();
-
-        //var_dump($cat);exit();
 
         $id = $cat['id'];
 
         $childCat = RbCategories::find()->where(['parent'=>$id])->one();
-        //var_dump($childCat);exit();
-
+        
         if($childCat!=NULL){
 
             $collections = RbCategories::find()->where(['parent'=>$cat['id']])->all();
@@ -109,6 +125,39 @@ class CategoryController extends MainController
 
         return $this->render('keramamarazzi', [
             'collections' => $collections,
+        ]);
+    }
+
+    public function actionKeramaproducts()
+    {
+        $request = Yii::$app->request;
+
+        $alias = $request->get('alias');
+
+        $parentcat = RbCategories::find()->where(['alias'=>$alias])->one();
+
+        $products = Products::find()->where(['parent'=>$parentcat['id']])->all();
+
+        return $this->render('keramaproducts',[
+            'products' => $products,
+            'catalias' => $parentcat['alias'],
+        ]);
+    }
+
+    public function actionProducts()
+    {
+        $request = Yii::$app->request;
+
+        $alias = $request->get('alias');
+
+        $parentcat = RbCategories::find()->where(['alias'=>$alias])->one();
+
+        $parent = $parentcat['id'];
+
+        $products = Products::find()->where(['parent'=>$parent])->all();
+
+        return $this->render('products',[
+            'products' => $products,
         ]);
     }
 }
