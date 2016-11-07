@@ -23,9 +23,35 @@ AppAsset::register($this);
     <?= yii\helpers\Html::csrfMetaTags() ?>
     <title><?= yii\helpers\Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <style type="text/css">
+
+        #page-preloader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 100500;
+        }
+
+        #page-preloader .spinner {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: url('lin.gif') no-repeat 50% 50%;
+        margin: -16px 0 0 -16px;
+        }
+
+        
+    </style>
 </head>
 <body>
+
 <?php $this->beginBody() ?>
+    <div id="page-preloader"><span class="spinner" id="spinner"></span></div>
     <div id="all">
         <div id="header">
             <div id="logo"><a href="/"><img border="0" src="/images/logo_new.png" width="250"/></a></div>       
@@ -138,6 +164,17 @@ AppAsset::register($this);
 
 
     </div>
+    <script type="text/javascript">
+        window.onload = preloader()
+
+        function preloader(){
+            var preload = document.getElementById("spinner");
+            preload.style.display = "none";
+            var preloadDiv = document.getElementById("page-preloader");
+            preloadDiv.style.display = "none";
+        }
+
+    </script>
 <?php $this->endBody() ?>
 </body>
 </html>
